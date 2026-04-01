@@ -1,9 +1,7 @@
 <div align="left">
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=700&color=38BDF8&width=500&lines=hey%2C+i'm+ralph+%F0%9F%91%8B;2nd+year+BSCS+@+Mapua+Makati;building+things+that+think.)](https://ralphkgm.tech)
-
 </div>
-
 ---
 
 ### languages & tools
