@@ -22,7 +22,8 @@
 
 <div align="center">
 
-![Stats](https://ghstats.dev/api/card?username=RalphKGM&theme=tokyonight)&nbsp;&nbsp;![Streak](https://streak-stats.demolab.com?user=RalphKGM&theme=tokyonight)
+![Stats](https://ghstats.dev/api/card?username=RalphKGM&theme=tokyonight)  
+![Streak](https://streak-stats.demolab.com?user=RalphKGM&theme=tokyonight)
 
 </div>
 
