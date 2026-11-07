@@ -1,5 +1,3 @@
-<h1 align="center">Ralph Kevin Morales</h1>
-
 <p align="center">3rd year BSCS @ Mapúa Makati</p>
 
 <p align="center"><a href="https://ralphkgm.tech">ralphkgm.tech</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/ralphkevmorales">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:ralphkevingmorales@gmail.com">Email</a></p>
