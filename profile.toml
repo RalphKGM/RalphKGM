@@ -8,20 +8,24 @@
 
 [about]
 name = "Ralph Kevin Morales"
-nickname = "ralph"
-# Lines that rotate in the animated header. Keep each short.
+# Lines that rotate in the animated text under the banner. Keep each short.
+# {school_line} is filled in automatically, e.g. "3rd year BSCS @ Mapúa Makati"
 typing_lines = [
   "hey, i'm ralph 👋",
-  "{school_line}",   # filled in automatically, e.g. "3rd year BSCS @ Mapúa Makati"
+  "{school_line}",
   "i build things to learn how they work",
 ]
-# Short intro paragraph under the header. Markdown is allowed.
+# Short intro under the banner. Markdown is allowed.
 intro = """
 CS student who learns by building, breaking, and figuring out why it broke.
-Most of my work is school projects, game mods, and small tools I want to use myself.
+I like making things I'd actually use: school research tools, AI apps, and small utilities.
 """
-# Be upfront about how you work. Delete this line if you don't want it shown.
-how_i_work = "I build a lot with AI coding agents (Claude Code, Codex). I plan, direct, review, and test the work, and I'm still levelling up how much I can write from scratch."
+
+# How you work. Shown as a small two-row table. Delete this whole block to hide it.
+[about.how_i_work]
+i_do = ["design", "implementation", "testing"]
+ai_assists = ["documentation", "code in areas I'm still learning"]
+ai_tools = "Claude Code, Codex"
 
 [school]
 name = "Mapúa University Makati"
@@ -32,95 +36,95 @@ ay_start_month = 8       # month the school year starts (8 = August)
 graduated = false        # set true after graduation
 
 [header]
-color = "38BDF8"         # hex color without # (used for typing text and badges)
+color = "38BDF8"         # accent color, hex without # (banner, text, badges)
 font = "JetBrains+Mono"
 
 # ─────────────────────────────────────────────────────────────
 #  SKILLS. Be honest. Move items between levels as you grow.
-#  Badge names come from https://simpleicons.org (use the "slug").
-#  Format: { name = "Shown name", icon = "simpleicons-slug" }
+#  icon = an id from https://skillicons.dev (e.g. py, js, ts, react, docker).
+#  Leave icon out if skillicons doesn't have it; the name still shows.
 # ─────────────────────────────────────────────────────────────
 [skills]
 comfortable = [
-  { name = "Python", icon = "python" },
-  { name = "JavaScript", icon = "javascript" },
-  { name = "HTML/CSS", icon = "html5" },
-  { name = "Git & GitHub", icon = "github" },
-  { name = "Streamlit", icon = "streamlit" },
+  { name = "Python", icon = "py" },
+  { name = "JavaScript", icon = "js" },
+  { name = "HTML", icon = "html" },
+  { name = "CSS", icon = "css" },
+  { name = "Git", icon = "git" },
+  { name = "GitHub", icon = "github" },
+  { name = "Streamlit" },
 ]
 used_in_projects = [
-  { name = "TypeScript", icon = "typescript" },
-  { name = "Next.js", icon = "nextdotjs" },
-  { name = "Tailwind", icon = "tailwindcss" },
-  { name = "C# (RimWorld modding)", icon = "dotnet" },
-  { name = "Swift / SwiftUI", icon = "swift" },
-  { name = "Flutter / Dart", icon = "flutter" },
+  { name = "TypeScript", icon = "ts" },
+  { name = "Next.js", icon = "nextjs" },
+  { name = "Tailwind", icon = "tailwind" },
+  { name = "Flutter", icon = "flutter" },
+  { name = "Dart", icon = "dart" },
+  { name = "Swift", icon = "swift" },
+  { name = "C#", icon = "cs" },
   { name = "PHP", icon = "php" },
-  { name = "PostgreSQL / Supabase", icon = "supabase" },
-  { name = "YOLO (computer vision)", icon = "pytorch" },
-  { name = "OpenAI API", icon = "openai" },
+  { name = "PostgreSQL", icon = "postgres" },
+  { name = "Supabase", icon = "supabase" },
+  { name = "PyTorch / YOLO", icon = "pytorch" },
   { name = "Vercel", icon = "vercel" },
-  { name = "Wireshark / tshark", icon = "wireshark" },
+  { name = "OpenAI API" },
+  { name = "Wireshark / tshark" },
 ]
 learning = [
   { name = "Rust", icon = "rust" },
   { name = "Docker", icon = "docker" },
-  { name = "Linux servers", icon = "linux" },
-  { name = "RAG / LLM apps", icon = "langchain" },
-  { name = "AWS basics", icon = "amazonwebservices" },
+  { name = "Linux", icon = "linux" },
+  { name = "AWS", icon = "aws" },
+  { name = "RAG / LLM apps" },
 ]
 
 # ─────────────────────────────────────────────────────────────
 #  NOW. What you're working on. Remove items when done.
 # ─────────────────────────────────────────────────────────────
 [[now]]
-text = "**Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget with citations (AI3 class project)"
+text = "**Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget, with citations (AI3 class project)"
 [[now]]
 text = "**eRankToSRank**: [erank.ralphkgm.tech](https://erank.ralphkgm.tech)"
 [[now]]
-text = "**RimWorld LAN multiplayer**: getting a 590+ mod pack to run in multiplayer without desyncs"
-[[now]]
-text = "**Portfolio**: [ralphkgm.tech](https://ralphkgm.tech)"
+text = "**My portfolio**: [ralphkgm.tech](https://ralphkgm.tech)"
 
 # ─────────────────────────────────────────────────────────────
-#  FEATURED PROJECTS. Shown as cards in this order.
-#  repo = public repo name. Language, stars, and last update are fetched for you.
-#  blurb is optional (falls back to the repo description).
-#  language is optional (otherwise the main language is detected).
+#  FEATURED PROJECTS. Shown as cards in this order (2 per row).
+#  repo = exact name of a PUBLIC repo. Language, stars, last update are fetched.
+#  emoji, title, blurb, language are optional.
 # ─────────────────────────────────────────────────────────────
 [[featured]]
 repo = "habagat-streamlit"
+emoji = "🌤️"
 title = "SolWind"
 blurb = "Solar + wind microgrid simulator with day-ahead forecasting for three Philippine sites. CSS142 research project."
 [[featured]]
 repo = "ai2-computer-vision"
+emoji = "🍎"
 title = "CIPHER"
 blurb = "Two-stage YOLO instance segmentation of post-harvest defects on apples and tomatoes. Group research project."
 [[featured]]
 repo = "FireClaw"
-blurb = "Reads Suricata/tshark logs, has an LLM explain threats mapped to MITRE ATT&CK, and alerts via Discord and a web dashboard."
+emoji = "🛡️"
+blurb = "Reads Suricata/tshark logs, has an LLM explain threats mapped to MITRE ATT&CK, then alerts via Discord and a web dashboard."
 [[featured]]
 repo = "lightnovel-voice"
-blurb = "Light novel reader that voices narration and each character with a different AI voice."
+emoji = "🎧"
+blurb = "Light novel reader that voices the narration and each character with a different AI voice."
 [[featured]]
 repo = "akashic"
+emoji = "🖼️"
 title = "Akashic"
-blurb = "Photo memory app: upload photos, let AI describe them, then search with plain language."
-[[featured]]
-repo = "rimsekai-ce-compatibility-patch"
-title = "Isekai CE Compatibility"
-blurb = "RimWorld mod that makes the Rim Isekai mods work with Combat Extended."
-[[featured]]
-repo = "rimpy-light"
-title = "RimPy Light"
-blurb = "Small native macOS mod manager for RimWorld, written in SwiftUI."
+blurb = "Photo memory app: upload photos, let AI describe them, then search your library in plain language."
 [[featured]]
 repo = "questline"
+emoji = "🗺️"
 title = "QuestLine"
 blurb = "Flutter app that turns Philippine government paperwork into a quest tracker."
 
 # ─────────────────────────────────────────────────────────────
-#  LINKS shown at the bottom.
+#  LINKS shown under the banner.
+#  icon = an id from https://simpleicons.org
 # ─────────────────────────────────────────────────────────────
 [[links]]
 label = "ralphkgm.tech"
@@ -139,15 +143,17 @@ icon = "gmail"
 #  AUTOMATIC SECTIONS. Turn on/off and tune.
 # ─────────────────────────────────────────────────────────────
 [auto]
-show_recent_repos = true     # "recently updated" list from your public repos
-recent_repos_count = 5
+show_recent_repos = true     # "more public repos" list
+recent_repos_count = 6
 show_activity = true         # latest public pushes / new repos / releases
 activity_count = 6
 show_languages = true        # language bar measured from your public repos
-languages_count = 8
+languages_count = 7
 # Languages that inflate the numbers without being "code you wrote".
 ignore_languages = ["Jupyter Notebook", "Makefile", "Batchfile", "CMake", "Dockerfile", "Procfile"]
 show_streak = true           # streak card (external service)
-show_snake = false           # contribution snake animation (built by the snake workflow)
-# Public repos to never list anywhere automatic.
+show_snake = false           # contribution snake (turn on after the snake workflow runs once)
+# Public repos to never list in the automatic sections.
 exclude_repos = ["RalphKGM", "group4website.github.io", "WD4E-Advanced_Styling_With_Responsive_Design"]
+# Keep these out of the activity feed too (still allowed in "more public repos").
+quiet_repos = ["rimsekai-ce-compatibility-patch", "rimpy-light"]

@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 USER = os.environ.get("PROFILE_USER", "RalphKGM")
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 TODAY = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))  # Philippine time
+q = lambda s: urllib.parse.quote(s, safe="")
 
 
 def api(path):
@@ -37,9 +38,9 @@ def safe(fn, default):
 
 
 def badge(label, icon, color, bg="0d1117"):
-    text = urllib.parse.quote(label.replace("-", "--").replace("_", "__"), safe="")
-    return (f"![{label}](https://img.shields.io/badge/{text}-{bg}?style=flat-square"
-            f"&logo={urllib.parse.quote(icon or '')}&logoColor={color})")
+    text = q(label.replace("-", "--").replace("_", "__"))
+    return (f"![{label}](https://img.shields.io/badge/{text}-{bg}?style=for-the-badge"
+            f"&logo={q(icon or '')}&logoColor={color})")
 
 
 def ordinal(n):
@@ -54,12 +55,8 @@ def school_line(s):
     return f"{ordinal(level)} year {s['degree']} @ {s.get('short', s['name'])}"
 
 
-def month_day(iso):
-    return dt.datetime.fromisoformat(iso.replace("Z", "+00:00")).strftime("%b %-d")
-
-
-def month_year(iso):
-    return dt.datetime.fromisoformat(iso.replace("Z", "+00:00")).strftime("%b %Y")
+def when(iso, fmt):
+    return dt.datetime.fromisoformat(iso.replace("Z", "+00:00")).strftime(fmt)
 
 
 def main():
@@ -68,6 +65,7 @@ def main():
     color = cfg.get("header", {}).get("color", "38BDF8")
     font = cfg.get("header", {}).get("font", "JetBrains+Mono")
     exclude = set(auto.get("exclude_repos", [])) | {USER}
+    quiet = exclude | set(auto.get("quiet_repos", []))
     sline = school_line(school)
 
     repos = safe(lambda: api(f"/users/{USER}/repos?per_page=100&type=owner&sort=pushed"), [])
@@ -85,94 +83,113 @@ def main():
     out = []
     w = out.append
 
-    # Header
-    lines = ";".join(urllib.parse.quote(l.replace("{school_line}", sline)) for l in about["typing_lines"])
-    w(f'<div align="left">\n\n[![Typing SVG](https://readme-typing-svg.demolab.com?font={font}&weight=600'
-      f'&size=22&pause=900&color={color}&width=560&lines={lines})](https://ralphkgm.tech)\n\n</div>\n')
-    w(about.get("intro", "").strip() + "\n")
-    if about.get("how_i_work"):
-        w(f"> {about['how_i_work']}\n")
+    # ── Banner, typing line, links
+    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:{color}'
+      f'&height=190&section=header&text={q(about["name"])}&fontSize=44&fontColor=ffffff&fontAlignY=36'
+      f'&desc={q(sline)}&descSize=18&descAlignY=58&animation=fadeIn" alt="{about["name"]}" />\n')
+    lines = ";".join(q(l.replace("{school_line}", sline)) for l in about["typing_lines"])
+    w(f'<p align="center"><a href="https://ralphkgm.tech"><img src="https://readme-typing-svg.demolab.com?font={font}'
+      f'&weight=600&size=20&pause=1000&color={color}&center=true&vCenter=true&width=520&lines={lines}" '
+      f'alt="typing intro" /></a></p>\n')
+    if cfg.get("links"):
+        w('<p align="center">\n\n' + "&nbsp;".join(
+            f"[{badge(l['label'], l.get('icon'), color)}]({l['url']})" for l in cfg["links"]) + "\n\n</p>\n")
 
-    # Now
+    # ── About + how I work
+    w("## 👋 about me\n")
+    w(about.get("intro", "").strip() + "\n")
+    hw = about.get("how_i_work")
+    if hw:
+        w("| | |\n|---|---|")
+        if hw.get("i_do"):
+            w(f"| 🧠 **what I do myself** | {' · '.join(hw['i_do'])} |")
+        if hw.get("ai_assists"):
+            tools = f" <sub>({hw['ai_tools']})</sub>" if hw.get("ai_tools") else ""
+            w(f"| 🤖 **where AI assists** | {' · '.join(hw['ai_assists'])}{tools} |")
+        w("")
+
+    # ── Now
     if cfg.get("now"):
-        w("### 🔨 working on now\n")
+        w("## 🔨 working on now\n")
         for item in cfg["now"]:
             w(f"- {item['text']}")
         w("")
 
-    # Skills
-    sk = cfg.get("skills", {})
-    levels = [("comfortable", "comfortable with", "used across several of my projects"),
-              ("used_in_projects", "have used in projects", "built at least one real project with it"),
-              ("learning", "learning", "early days, still figuring it out")]
-    if any(sk.get(k) for k, _, _ in levels):
-        w("### 🧰 skills (honest version)\n")
-        w("| level | what that means | |\n|---|---|---|")
-        for key, label, meaning in levels:
-            if sk.get(key):
-                w(f"| **{label}** | {meaning} | " + " ".join(badge(s["name"], s.get("icon"), color) for s in sk[key]) + " |")
-        w("")
-
-    # Featured
+    # ── Featured
     feats = [f for f in cfg.get("featured", []) if f["repo"] in by_name]
     if feats:
-        w("### ⭐ featured projects\n")
+        w("## ⭐ featured projects\n")
         w("<table>")
         for i in range(0, len(feats), 2):
             w("<tr>")
             for f in feats[i:i + 2]:
                 r = by_name[f["repo"]]
-                title = f.get("title", r["name"])
+                title = f"{f.get('emoji', '')} {f.get('title', r['name'])}".strip()
                 blurb = f.get("blurb") or r.get("description") or ""
                 meta = " · ".join(x for x in [
                     f.get("language") or main_lang(r),
                     f"★ {r['stargazers_count']}" if r["stargazers_count"] else "",
-                    f"updated {month_year(r['pushed_at'])}"] if x)
-                demo = f' · <a href="{r["homepage"]}">live demo</a>' if r.get("homepage") else ""
-                w(f'<td width="50%" valign="top">\n\n**[{title}]({r["html_url"]})**<br>\n{blurb}<br>\n'
+                    f"updated {when(r['pushed_at'], '%b %Y')}"] if x)
+                demo = f' · <a href="{r["homepage"]}">live demo ↗</a>' if r.get("homepage") else ""
+                w(f'<td width="50%" valign="top">\n\n### [{title}]({r["html_url"]})\n{blurb}\n\n'
                   f'<sub>{meta}{demo}</sub>\n\n</td>')
             w("</tr>")
         w("</table>\n")
 
-    # Recently updated
+    # ── More repos
     if auto.get("show_recent_repos", True) and listed:
         featured_names = {f["repo"] for f in feats}
-        recent = [r for r in listed if r["name"] not in featured_names][: auto.get("recent_repos_count", 5)]
+        recent = [r for r in listed if r["name"] not in featured_names][: auto.get("recent_repos_count", 6)]
         if recent:
-            w("<details>\n<summary><b>📂 more public repos (recently updated first)</b></summary>\n")
+            w("<details>\n<summary><b>📂 more public repos</b> <sub>(recently updated first)</sub></summary>\n")
             for r in recent:
                 desc = f": {r['description']}" if r.get("description") else ""
                 lang = f" `{main_lang(r)}`" if main_lang(r) else ""
-                w(f"- [{r['name']}]({r['html_url']}){lang}{desc} <sub>updated {month_year(r['pushed_at'])}</sub>")
-            w(f"\n[see all repos →](https://github.com/{USER}?tab=repositories)\n\n</details>\n")
+                w(f"- [{r['name']}]({r['html_url']}){lang}{desc} <sub>{when(r['pushed_at'], '%b %Y')}</sub>")
+            w(f"\n[all repos →](https://github.com/{USER}?tab=repositories)\n\n</details>\n")
 
-    # Languages
+    # ── Skills
+    sk = cfg.get("skills", {})
+    levels = [("comfortable", "🟢 comfortable with", "used across several of my projects"),
+              ("used_in_projects", "🟡 have used in projects", "built at least one real project with it"),
+              ("learning", "🔵 learning", "early days, still figuring it out")]
+    if any(sk.get(k) for k, _, _ in levels):
+        w("## 🧰 skills <sub>(honest version)</sub>\n")
+        for key, label, meaning in levels:
+            items = sk.get(key) or []
+            if not items:
+                continue
+            w(f"**{label}** <sub>{meaning}</sub>\n")
+            icons = [s["icon"] for s in items if s.get("icon")]
+            if icons:
+                w(f'<img src="https://skillicons.dev/icons?i={",".join(icons)}&perline=14" alt="{key} icons" />\n')
+            w("<sub>" + " · ".join(s["name"] for s in items) + "</sub>\n")
+
+    # ── Languages + activity side by side
+    lang_block, act_block = "", ""
     if auto.get("show_languages", True) and listed:
         totals = {}
         for r in listed:
             for lang, n in langs.get(r["name"], {}).items():
                 if lang not in ignore:
                     totals[lang] = totals.get(lang, 0) + n
-        top = sorted(totals.items(), key=lambda kv: -kv[1])[: auto.get("languages_count", 8)]
+        top = sorted(totals.items(), key=lambda kv: -kv[1])[: auto.get("languages_count", 7)]
         whole = sum(totals.values()) or 1
         if top:
-            w("### 📊 what my public code is actually written in\n")
-            w("<sub>Measured from my public repos by the GitHub API, refreshed daily. Private repos are not counted.</sub>\n")
-            w("```text")
             width = max(len(l) for l, _ in top)
+            rows = []
             for lang, n in top:
                 pct = n / whole * 100
-                bar = "█" * round(pct / 5) + "░" * (20 - round(pct / 5))
-                w(f"{lang.ljust(width)}  {bar}  {pct:5.1f}%")
-            w("```\n")
-
-    # Activity
+                filled = round(pct / 100 * 14)
+                rows.append(f"{lang.ljust(width)} {'█' * filled}{'░' * (14 - filled)} {pct:4.1f}%")
+            lang_block = ("**📊 languages in my public code**\n\n```text\n" + "\n".join(rows) +
+                          "\n```\n<sub>measured by the GitHub API, private repos not counted</sub>")
     if auto.get("show_activity", True):
         events = safe(lambda: api(f"/users/{USER}/events/public?per_page=100"), [])
         rows, seen = [], set()
         for e in events:
             repo = e["repo"]["name"].split("/", 1)[-1]
-            if repo in exclude:
+            if repo in quiet:
                 continue
             link = f"[{repo}](https://github.com/{e['repo']['name']})"
             p, t = e.get("payload", {}), e["type"]
@@ -181,50 +198,47 @@ def main():
             elif t == "CreateEvent" and p.get("ref_type") == "repository":
                 txt = f"created {link}"
             elif t == "PublicEvent":
-                txt = f"made {link} public"
+                txt = f"open-sourced {link}"
             elif t == "ReleaseEvent":
                 txt = f"released {p.get('release', {}).get('tag_name', '')} of {link}"
             elif t == "PullRequestEvent" and p.get("action") in ("opened", "closed"):
                 verb = "merged" if p.get("pull_request", {}).get("merged") else p["action"]
-                txt = f"{verb} a pull request in {link}"
+                txt = f"{verb} a PR in {link}"
             else:
                 continue
-            line = f"- {txt} <sub>{month_day(e['created_at'])}</sub>"
-            if txt in seen:  # one line per repo action, newest first
+            if txt in seen:
                 continue
             seen.add(txt)
-            rows.append(line)
+            rows.append(f"- {txt} <sub>{when(e['created_at'], '%b %-d')}</sub>")
             if len(rows) >= auto.get("activity_count", 6):
                 break
         if rows:
-            w("### ⚡ recent public activity\n")
-            w("\n".join(rows) + "\n")
+            act_block = "**⚡ recent public activity**\n\n" + "\n".join(rows)
+    if lang_block or act_block:
+        w("## 📈 activity\n")
+        if lang_block and act_block:
+            w(f'<table><tr>\n<td width="50%" valign="top">\n\n{lang_block}\n\n</td>\n'
+              f'<td width="50%" valign="top">\n\n{act_block}\n\n</td>\n</tr></table>\n')
+        else:
+            w((lang_block or act_block) + "\n")
 
-    # Stats
-    if listed or user:
-        stars = sum(r["stargazers_count"] for r in listed)
-        since = user.get("created_at", "")[:4]
-        w("### 📈 numbers\n")
-        bits = [f"**{len(listed)}** public projects", f"**{stars}** stars"]
-        if since:
-            bits.append(f"on GitHub since **{since}**")
-        w(" · ".join(bits) + "\n")
+    stars = sum(r["stargazers_count"] for r in listed)
+    since = user.get("created_at", "")[:4]
+    if listed:
+        w(f'<p align="center"><sub><b>{len(listed)}</b> public projects · <b>{stars}</b> stars'
+          + (f" · on GitHub since <b>{since}</b>" if since else "") + "</sub></p>\n")
     if auto.get("show_streak", True):
-        w(f'<p align="center"><img src="https://streak-stats.demolab.com?user={USER}&theme=tokyonight&hide_border=true" '
-          f'alt="streak" /></p>\n')
-    if auto.get("show_snake", True):
+        w(f'<p align="center"><img src="https://streak-stats.demolab.com?user={USER}&theme=tokyonight'
+          f'&hide_border=true&background=0D1117&ring={color}&fire={color}&currStreakLabel={color}" alt="streak" /></p>\n')
+    if auto.get("show_snake", False):
         base = f"https://raw.githubusercontent.com/{USER}/{USER}/output"
         w('<picture>\n'
           f'  <source media="(prefers-color-scheme: dark)" srcset="{base}/github-snake-dark.svg" />\n'
-          f'  <source media="(prefers-color-scheme: light)" srcset="{base}/github-snake.svg" />\n'
           f'  <img alt="contribution snake" src="{base}/github-snake.svg" />\n</picture>\n')
 
-    # Links
-    if cfg.get("links"):
-        w("### 📬 find me\n")
-        w("&nbsp;".join(f"[{badge(l['label'], l.get('icon'), color)}]({l['url']})" for l in cfg["links"]) + "\n")
-
-    # Footer: changes once a month so GitHub never disables the daily schedule for inactivity
+    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{color},100:0d1117'
+      f'&height=110&section=footer" alt="" />\n')
+    # Changes once a month so GitHub never disables the daily schedule for inactivity
     w(f"<!-- built from profile.toml by scripts/build_readme.py. Edit profile.toml, not this file. "
       f"refreshed: {TODAY:%Y-%m} -->")
 

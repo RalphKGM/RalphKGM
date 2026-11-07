@@ -10,16 +10,18 @@ The easiest way is on github.com: open `profile.toml`, click the pencil, make yo
 |---|---|
 | Change the intro | Edit `intro` under `[about]` |
 | Change the animated header lines | Edit `typing_lines`. `{school_line}` fills in your year level automatically (e.g. "3rd year BSCS @ Mapúa Makati"). |
-| Remove the AI-tools note | Delete the `how_i_work` line |
+| Change "what I do myself" / "where AI assists" | Edit the lists under `[about.how_i_work]`. Delete the whole block to hide the table. |
 | Move a skill up a level | Cut the line from `learning` and paste it into `used_in_projects` or `comfortable` |
-| Add a skill | Add `{ name = "Go", icon = "go" },`. Find icon names at [simpleicons.org](https://simpleicons.org) (lowercase, no spaces). A wrong icon name just shows the badge without a logo. |
+| Add a skill | Add `{ name = "Go", icon = "go" },` to a level. Icon ids come from [skillicons.dev](https://skillicons.dev). If there's no icon for it, leave `icon` out and only the name shows. |
 | Add something to "working on now" | Copy a `[[now]]` block and change `text` |
 | Feature a project | Copy a `[[featured]]` block. `repo` must be the exact name of a **public** repo. Projects are shown in the order you list them. |
 | Un-feature a project | Delete its `[[featured]]` block. It still shows under "more public repos". |
 | Hide a repo everywhere | Add its name to `exclude_repos` under `[auto]` |
+| Keep a repo out of the activity feed only | Add it to `quiet_repos` (the RimWorld repos are there now) |
 | Turn a section off | Set `show_activity`, `show_languages`, `show_streak`, `show_snake`, or `show_recent_repos` to `false` |
 | After graduating | Set `graduated = true` under `[school]` |
-| Change the accent color | Change `color` under `[header]` (hex, no `#`) |
+| Change the accent color | Change `color` under `[header]` (hex, no `#`). The banner, text and badges all follow it. |
+| Give a featured card an emoji | Add `emoji = "🚀"` to its `[[featured]]` block |
 
 ## What updates by itself (daily)
 
