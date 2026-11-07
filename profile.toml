@@ -1,0 +1,153 @@
+# ─────────────────────────────────────────────────────────────
+#  Edit this file to change your GitHub profile README.
+#  After you commit, a GitHub Action rebuilds README.md for you
+#  (it also runs every day to refresh activity, languages, and repos).
+#  Do NOT edit README.md by hand. It gets overwritten.
+#  Guide: see HOW-TO-EDIT.md
+# ─────────────────────────────────────────────────────────────
+
+[about]
+name = "Ralph Kevin Morales"
+nickname = "ralph"
+# Lines that rotate in the animated header. Keep each short.
+typing_lines = [
+  "hey, i'm ralph 👋",
+  "{school_line}",   # filled in automatically, e.g. "3rd year BSCS @ Mapúa Makati"
+  "i build things to learn how they work",
+]
+# Short intro paragraph under the header. Markdown is allowed.
+intro = """
+CS student who learns by building, breaking, and figuring out why it broke.
+Most of my work is school projects, game mods, and small tools I want to use myself.
+"""
+# Be upfront about how you work. Delete this line if you don't want it shown.
+how_i_work = "I build a lot with AI coding agents (Claude Code, Codex). I plan, direct, review, and test the work, and I'm still levelling up how much I can write from scratch."
+
+[school]
+name = "Mapúa University Makati"
+short = "Mapúa Makati"   # used in the header line
+degree = "BSCS"
+start_year = 2024        # the year you started 1st year
+ay_start_month = 8       # month the school year starts (8 = August)
+graduated = false        # set true after graduation
+
+[header]
+color = "38BDF8"         # hex color without # (used for typing text and badges)
+font = "JetBrains+Mono"
+
+# ─────────────────────────────────────────────────────────────
+#  SKILLS. Be honest. Move items between levels as you grow.
+#  Badge names come from https://simpleicons.org (use the "slug").
+#  Format: { name = "Shown name", icon = "simpleicons-slug" }
+# ─────────────────────────────────────────────────────────────
+[skills]
+comfortable = [
+  { name = "Python", icon = "python" },
+  { name = "JavaScript", icon = "javascript" },
+  { name = "HTML/CSS", icon = "html5" },
+  { name = "Git & GitHub", icon = "github" },
+  { name = "Streamlit", icon = "streamlit" },
+]
+used_in_projects = [
+  { name = "TypeScript", icon = "typescript" },
+  { name = "Next.js", icon = "nextdotjs" },
+  { name = "Tailwind", icon = "tailwindcss" },
+  { name = "C# (RimWorld modding)", icon = "dotnet" },
+  { name = "Swift / SwiftUI", icon = "swift" },
+  { name = "Flutter / Dart", icon = "flutter" },
+  { name = "PHP", icon = "php" },
+  { name = "PostgreSQL / Supabase", icon = "supabase" },
+  { name = "YOLO (computer vision)", icon = "pytorch" },
+  { name = "OpenAI API", icon = "openai" },
+  { name = "Vercel", icon = "vercel" },
+  { name = "Wireshark / tshark", icon = "wireshark" },
+]
+learning = [
+  { name = "Rust", icon = "rust" },
+  { name = "Docker", icon = "docker" },
+  { name = "Linux servers", icon = "linux" },
+  { name = "RAG / LLM apps", icon = "langchain" },
+  { name = "AWS basics", icon = "amazonwebservices" },
+]
+
+# ─────────────────────────────────────────────────────────────
+#  NOW. What you're working on. Remove items when done.
+# ─────────────────────────────────────────────────────────────
+[[now]]
+text = "**Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget with citations (AI3 class project)"
+[[now]]
+text = "**eRankToSRank**: [erank.ralphkgm.tech](https://erank.ralphkgm.tech)"
+[[now]]
+text = "**RimWorld LAN multiplayer**: getting a 590+ mod pack to run in multiplayer without desyncs"
+[[now]]
+text = "**Portfolio**: [ralphkgm.tech](https://ralphkgm.tech)"
+
+# ─────────────────────────────────────────────────────────────
+#  FEATURED PROJECTS. Shown as cards in this order.
+#  repo = public repo name. Language, stars, and last update are fetched for you.
+#  blurb is optional (falls back to the repo description).
+#  language is optional (otherwise the main language is detected).
+# ─────────────────────────────────────────────────────────────
+[[featured]]
+repo = "habagat-streamlit"
+title = "SolWind"
+blurb = "Solar + wind microgrid simulator with day-ahead forecasting for three Philippine sites. CSS142 research project."
+[[featured]]
+repo = "ai2-computer-vision"
+title = "CIPHER"
+blurb = "Two-stage YOLO instance segmentation of post-harvest defects on apples and tomatoes. Group research project."
+[[featured]]
+repo = "FireClaw"
+blurb = "Reads Suricata/tshark logs, has an LLM explain threats mapped to MITRE ATT&CK, and alerts via Discord and a web dashboard."
+[[featured]]
+repo = "lightnovel-voice"
+blurb = "Light novel reader that voices narration and each character with a different AI voice."
+[[featured]]
+repo = "akashic"
+title = "Akashic"
+blurb = "Photo memory app: upload photos, let AI describe them, then search with plain language."
+[[featured]]
+repo = "rimsekai-ce-compatibility-patch"
+title = "Isekai CE Compatibility"
+blurb = "RimWorld mod that makes the Rim Isekai mods work with Combat Extended."
+[[featured]]
+repo = "rimpy-light"
+title = "RimPy Light"
+blurb = "Small native macOS mod manager for RimWorld, written in SwiftUI."
+[[featured]]
+repo = "questline"
+title = "QuestLine"
+blurb = "Flutter app that turns Philippine government paperwork into a quest tracker."
+
+# ─────────────────────────────────────────────────────────────
+#  LINKS shown at the bottom.
+# ─────────────────────────────────────────────────────────────
+[[links]]
+label = "ralphkgm.tech"
+url = "https://ralphkgm.tech"
+icon = "vercel"
+[[links]]
+label = "LinkedIn"
+url = "https://linkedin.com/in/ralphkevmorales"
+icon = "linkedin"
+[[links]]
+label = "Email"
+url = "mailto:ralphkevingmorales@gmail.com"
+icon = "gmail"
+
+# ─────────────────────────────────────────────────────────────
+#  AUTOMATIC SECTIONS. Turn on/off and tune.
+# ─────────────────────────────────────────────────────────────
+[auto]
+show_recent_repos = true     # "recently updated" list from your public repos
+recent_repos_count = 5
+show_activity = true         # latest public pushes / new repos / releases
+activity_count = 6
+show_languages = true        # language bar measured from your public repos
+languages_count = 8
+# Languages that inflate the numbers without being "code you wrote".
+ignore_languages = ["Jupyter Notebook", "Makefile", "Batchfile", "CMake", "Dockerfile", "Procfile"]
+show_streak = true           # streak card (external service)
+show_snake = true            # contribution snake animation (built by the snake workflow)
+# Public repos to never list anywhere automatic.
+exclude_repos = ["RalphKGM", "group4website.github.io", "WD4E-Advanced_Styling_With_Responsive_Design"]
