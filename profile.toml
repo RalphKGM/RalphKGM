@@ -9,11 +9,11 @@
 [about]
 name = "Ralph Kevin Morales"
 # Lines that rotate in the animated text under the banner. Keep each short.
-# {school_line} is filled in automatically, e.g. "3rd year BSCS @ Mapúa Makati"
+# You can use {school_line} (e.g. "3rd year BSCS @ Mapúa Makati"), but the banner already shows it.
 typing_lines = [
   "hey, i'm ralph 👋",
-  "{school_line}",
   "i build things to learn how they work",
+  "currently: RAG chatbots + computer vision",
 ]
 # Short intro under the banner. Markdown is allowed.
 intro = """
@@ -24,7 +24,6 @@ I handle the design, implementation, and testing of my projects myself, and I us
 # Quick facts shown as a short list under the intro. Add, remove, or reorder freely.
 # {school_line} works here too.
 facts = [
-  "🎓 {school_line}",
   "🔬 school research in computer vision, energy forecasting, and RAG chatbots",
   "🛠️ I like building tools I'd actually use myself",
   "📚 outside of code: web novels and games",
@@ -39,7 +38,8 @@ ay_start_month = 8       # month the school year starts (8 = August)
 graduated = false        # set true after graduation
 
 [header]
-color = "38BDF8"         # accent color, hex without # (banner, text, badges)
+color = "38BDF8"         # accent color, hex without # (typing text, streak card)
+banner_colors = ["0EA5E9", "1E3A8A"]   # top banner gradient (left, right); readable in light and dark mode
 font = "JetBrains+Mono"
 
 # ─────────────────────────────────────────────────────────────
@@ -127,20 +127,23 @@ blurb = "Flutter app that turns Philippine government paperwork into a quest tra
 
 # ─────────────────────────────────────────────────────────────
 #  LINKS shown under the banner.
-#  icon = an id from https://simpleicons.org
+#  icon = an id from https://simpleicons.org, color = badge background (hex, no #)
 # ─────────────────────────────────────────────────────────────
 [[links]]
 label = "ralphkgm.tech"
 url = "https://ralphkgm.tech"
 icon = "vercel"
+color = "0EA5E9"
 [[links]]
 label = "LinkedIn"
 url = "https://linkedin.com/in/ralphkevmorales"
 icon = "linkedin"
+color = "0A66C2"
 [[links]]
 label = "Email"
 url = "mailto:ralphkevingmorales@gmail.com"
 icon = "gmail"
+color = "EA4335"
 
 # ─────────────────────────────────────────────────────────────
 #  AUTOMATIC SECTIONS. Turn on/off and tune.

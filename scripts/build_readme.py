@@ -64,6 +64,7 @@ def main():
     about, school, auto = cfg["about"], cfg["school"], cfg.get("auto", {})
     color = cfg.get("header", {}).get("color", "38BDF8")
     font = cfg.get("header", {}).get("font", "JetBrains+Mono")
+    grad = cfg.get("header", {}).get("banner_colors", ["0EA5E9", "1E3A8A"])
     exclude = set(auto.get("exclude_repos", [])) | {USER}
     quiet = exclude | set(auto.get("quiet_repos", []))
     sline = school_line(school)
@@ -84,7 +85,7 @@ def main():
     w = out.append
 
     # ── Banner, typing line, links
-    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:{color}'
+    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[0]},100:{grad[1]}'
       f'&height=190&section=header&text={q(about["name"])}&fontSize=44&fontColor=ffffff&fontAlignY=36'
       f'&desc={q(sline)}&descSize=18&descAlignY=58&animation=fadeIn" alt="{about["name"]}" />\n')
     lines = ";".join(q(l.replace("{school_line}", sline)) for l in about["typing_lines"])
@@ -92,8 +93,13 @@ def main():
       f'&weight=600&size=20&pause=1000&color={color}&center=true&vCenter=true&width=520&lines={lines}" '
       f'alt="typing intro" /></a></p>\n')
     if cfg.get("links"):
-        w('<p align="center">\n\n' + "&nbsp;".join(
-            f"[{badge(l['label'], l.get('icon'), color)}]({l['url']})" for l in cfg["links"]) + "\n\n</p>\n")
+        imgs = []
+        for l in cfg["links"]:
+            label = q(l["label"].replace("-", "--").replace("_", "__"))
+            src = (f"https://img.shields.io/badge/{label}-{l.get('color', color)}?style=for-the-badge"
+                   f"&logo={q(l.get('icon', ''))}&logoColor=white")
+            imgs.append(f'<a href="{l["url"]}"><img src="{src}" alt="{l["label"]}" /></a>')
+        w('<p align="center">\n  ' + "\n  ".join(imgs) + "\n</p>\n")
 
     # ── About + how I work
     w("## 👋 about me\n")
@@ -173,8 +179,8 @@ def main():
             rows = []
             for lang, n in top:
                 pct = n / whole * 100
-                filled = round(pct / 100 * 14)
-                rows.append(f"{lang.ljust(width)} {'█' * filled}{'░' * (14 - filled)} {pct:4.1f}%")
+                filled = round(pct / 100 * 24)
+                rows.append(f"{lang.ljust(width)} {'█' * filled}{'░' * (24 - filled)} {pct:4.1f}%")
             lang_block = ("**📊 languages in my public code**\n\n```text\n" + "\n".join(rows) +
                           "\n```\n<sub>measured by the GitHub API, private repos not counted</sub>")
     if auto.get("show_activity", True):
@@ -209,11 +215,7 @@ def main():
             act_block = "**⚡ recent public activity**\n\n" + "\n".join(rows)
     if lang_block or act_block:
         w("## 📈 activity\n")
-        if lang_block and act_block:
-            w(f'<table><tr>\n<td width="50%" valign="top">\n\n{lang_block}\n\n</td>\n'
-              f'<td width="50%" valign="top">\n\n{act_block}\n\n</td>\n</tr></table>\n')
-        else:
-            w((lang_block or act_block) + "\n")
+        w("\n\n".join(b for b in (lang_block, act_block) if b) + "\n")
 
     stars = sum(r["stargazers_count"] for r in listed)
     since = user.get("created_at", "")[:4]
@@ -221,8 +223,10 @@ def main():
         w(f'<p align="center"><sub><b>{len(listed)}</b> public projects · <b>{stars}</b> stars'
           + (f" · on GitHub since <b>{since}</b>" if since else "") + "</sub></p>\n")
     if auto.get("show_streak", True):
-        w(f'<p align="center"><img src="https://streak-stats.demolab.com?user={USER}&theme=tokyonight'
-          f'&hide_border=true&background=0D1117&ring={color}&fire={color}&currStreakLabel={color}" alt="streak" /></p>\n')
+        st = f"https://streak-stats.demolab.com?user={USER}&hide_border=true&ring={color}&fire={color}&currStreakLabel={color}"
+        w('<p align="center">\n<picture>\n'
+          f'  <source media="(prefers-color-scheme: dark)" srcset="{st}&theme=tokyonight&background=0D1117" />\n'
+          f'  <img src="{st}&theme=default&background=FFFFFF" alt="GitHub streak" />\n</picture>\n</p>\n')
     if auto.get("show_snake", False):
         base = f"https://raw.githubusercontent.com/{USER}/{USER}/output"
         w('<picture>\n'
@@ -231,7 +235,7 @@ def main():
 
     if auto.get("show_views", True):
         w(f'<p align="center"><img src="https://komarev.com/ghpvc/?username={USER}&label=profile%20views&color=0d1117&style=flat-square" alt="profile views" /></p>\n')
-    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{color},100:0d1117'
+    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[1]},100:{grad[0]}'
       f'&height=110&section=footer" alt="" />\n')
     # Changes once a month so GitHub never disables the daily schedule for inactivity
     w(f"<!-- built from profile.toml by scripts/build_readme.py. Edit profile.toml, not this file. "

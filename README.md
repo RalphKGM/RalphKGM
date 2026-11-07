@@ -1,11 +1,11 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:38BDF8&height=190&section=header&text=Ralph%20Kevin%20Morales&fontSize=44&fontColor=ffffff&fontAlignY=36&desc=3rd%20year%20BSCS%20%40%20Map%C3%BAa%20Makati&descSize=18&descAlignY=58&animation=fadeIn" alt="Ralph Kevin Morales" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0EA5E9,100:1E3A8A&height=190&section=header&text=Ralph%20Kevin%20Morales&fontSize=44&fontColor=ffffff&fontAlignY=36&desc=3rd%20year%20BSCS%20%40%20Map%C3%BAa%20Makati&descSize=18&descAlignY=58&animation=fadeIn" alt="Ralph Kevin Morales" />
 
-<p align="center"><a href="https://ralphkgm.tech"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=1000&color=38BDF8&center=true&vCenter=true&width=520&lines=hey%2C%20i%27m%20ralph%20%F0%9F%91%8B;3rd%20year%20BSCS%20%40%20Map%C3%BAa%20Makati;i%20build%20things%20to%20learn%20how%20they%20work" alt="typing intro" /></a></p>
+<p align="center"><a href="https://ralphkgm.tech"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=1000&color=38BDF8&center=true&vCenter=true&width=520&lines=hey%2C%20i%27m%20ralph%20%F0%9F%91%8B;i%20build%20things%20to%20learn%20how%20they%20work;currently%3A%20RAG%20chatbots%20%2B%20computer%20vision" alt="typing intro" /></a></p>
 
 <p align="center">
-
-[![ralphkgm.tech](https://img.shields.io/badge/ralphkgm.tech-0d1117?style=for-the-badge&logo=vercel&logoColor=38BDF8)](https://ralphkgm.tech)&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=38BDF8)](https://linkedin.com/in/ralphkevmorales)&nbsp;[![Email](https://img.shields.io/badge/Email-0d1117?style=for-the-badge&logo=gmail&logoColor=38BDF8)](mailto:ralphkevingmorales@gmail.com)
-
+  <a href="https://ralphkgm.tech"><img src="https://img.shields.io/badge/ralphkgm.tech-0EA5E9?style=for-the-badge&logo=vercel&logoColor=white" alt="ralphkgm.tech" /></a>
+  <a href="https://linkedin.com/in/ralphkevmorales"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="mailto:ralphkevingmorales@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>
 
 ## 👋 about me
@@ -13,7 +13,6 @@
 I'm a CS student who learns by building, breaking, and figuring out why it broke.
 I handle the design, implementation, and testing of my projects myself, and I use AI-assisted coding (Claude Code, Codex) for documentation and for the parts I'm still learning.
 
-- 🎓 3rd year BSCS @ Mapúa Makati
 - 🔬 school research in computer vision, energy forecasting, and RAG chatbots
 - 🛠️ I like building tools I'd actually use myself
 - 📚 outside of code: web novels and games
@@ -119,39 +118,35 @@ Flutter app that turns Philippine government paperwork into a quest tracker.
 
 ## 📈 activity
 
-<table><tr>
-<td width="50%" valign="top">
-
 **📊 languages in my public code**
 
 ```text
-JavaScript █████░░░░░░░░░ 38.9%
-Python     ████░░░░░░░░░░ 25.1%
-HTML       ██░░░░░░░░░░░░ 13.0%
-C#         █░░░░░░░░░░░░░  5.7%
-Swift      █░░░░░░░░░░░░░  5.1%
-Dart       █░░░░░░░░░░░░░  4.1%
-CSS        ░░░░░░░░░░░░░░  3.5%
+JavaScript █████████░░░░░░░░░░░░░░░ 38.9%
+Python     ██████░░░░░░░░░░░░░░░░░░ 25.1%
+HTML       ███░░░░░░░░░░░░░░░░░░░░░ 13.0%
+C#         █░░░░░░░░░░░░░░░░░░░░░░░  5.7%
+Swift      █░░░░░░░░░░░░░░░░░░░░░░░  5.1%
+Dart       █░░░░░░░░░░░░░░░░░░░░░░░  4.1%
+CSS        █░░░░░░░░░░░░░░░░░░░░░░░  3.5%
 ```
 <sub>measured by the GitHub API, private repos not counted</sub>
-
-</td>
-<td width="50%" valign="top">
 
 **⚡ recent public activity**
 
 - pushed to [habagat-streamlit](https://github.com/RalphKGM/habagat-streamlit) <sub>Oct 8</sub>
 - pushed to [websys2-project](https://github.com/jstnphlp/websys2-project) <sub>Oct 7</sub>
 
-</td>
-</tr></table>
-
 <p align="center"><sub><b>15</b> public projects · <b>2</b> stars · on GitHub since <b>2024</b></sub></p>
 
-<p align="center"><img src="https://streak-stats.demolab.com?user=RalphKGM&theme=tokyonight&hide_border=true&background=0D1117&ring=38BDF8&fire=38BDF8&currStreakLabel=38BDF8" alt="streak" /></p>
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=RalphKGM&hide_border=true&ring=38BDF8&fire=38BDF8&currStreakLabel=38BDF8&theme=tokyonight&background=0D1117" />
+  <img src="https://streak-stats.demolab.com?user=RalphKGM&hide_border=true&ring=38BDF8&fire=38BDF8&currStreakLabel=38BDF8&theme=default&background=FFFFFF" alt="GitHub streak" />
+</picture>
+</p>
 
 <p align="center"><img src="https://komarev.com/ghpvc/?username=RalphKGM&label=profile%20views&color=0d1117&style=flat-square" alt="profile views" /></p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:38BDF8,100:0d1117&height=110&section=footer" alt="" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:0EA5E9&height=110&section=footer" alt="" />
 
 <!-- built from profile.toml by scripts/build_readme.py. Edit profile.toml, not this file. refreshed: 2026-11 -->
