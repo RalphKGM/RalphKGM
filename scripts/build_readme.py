@@ -84,22 +84,33 @@ def main():
     out = []
     w = out.append
 
-    # ── Banner, typing line, links
-    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[0]},100:{grad[1]}'
-      f'&height=190&section=header&text={q(about["name"])}&fontSize=44&fontColor=ffffff&fontAlignY=36'
-      f'&desc={q(sline)}&descSize=18&descAlignY=58&animation=fadeIn" alt="{about["name"]}" />\n')
-    lines = ";".join(q(l.replace("{school_line}", sline)) for l in about["typing_lines"])
-    w(f'<p align="center"><a href="https://ralphkgm.tech"><img src="https://readme-typing-svg.demolab.com?font={font}'
-      f'&weight=600&size=20&pause=1000&color={color}&center=true&vCenter=true&width=520&lines={lines}" '
-      f'alt="typing intro" /></a></p>\n')
+    # ── Header: plain by default; banner / typing / badges are optional extras
+    hdr = cfg.get("header", {})
+    if hdr.get("show_banner", False):
+        w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[0]},100:{grad[1]}'
+          f'&height=190&section=header&text={q(about["name"])}&fontSize=44&fontColor=ffffff&fontAlignY=36'
+          f'&desc={q(sline)}&descSize=18&descAlignY=58" alt="{about["name"]}" />\n')
+    else:
+        w(f'<h1 align="center">{about["name"]}</h1>\n')
+        w(f'<p align="center">{sline}</p>\n')
+    if hdr.get("show_typing", False) and about.get("typing_lines"):
+        lines = ";".join(q(l.replace("{school_line}", sline)) for l in about["typing_lines"])
+        w(f'<p align="center"><img src="https://readme-typing-svg.demolab.com?font={font}'
+          f'&weight=600&size=20&pause=1000&color={color}&center=true&vCenter=true&width=520&lines={lines}" '
+          f'alt="typing intro" /></p>\n')
     if cfg.get("links"):
-        imgs = []
-        for l in cfg["links"]:
-            label = q(l["label"].replace("-", "--").replace("_", "__"))
-            src = (f"https://img.shields.io/badge/{label}-{l.get('color', color)}?style=for-the-badge"
-                   f"&logo={q(l.get('icon', ''))}&logoColor=white")
-            imgs.append(f'<a href="{l["url"]}"><img src="{src}" alt="{l["label"]}" /></a>')
-        w('<p align="center">\n  ' + "\n  ".join(imgs) + "\n</p>\n")
+        if hdr.get("link_style", "text") == "badges":
+            imgs = []
+            for l in cfg["links"]:
+                label = q(l["label"].replace("-", "--").replace("_", "__"))
+                src = (f"https://img.shields.io/badge/{label}-{l.get('color', color)}?style=for-the-badge"
+                       f"&logo={q(l.get('icon', ''))}&logoColor=white")
+                imgs.append(f'<a href="{l["url"]}"><img src="{src}" alt="{l["label"]}" /></a>')
+            w('<p align="center">\n  ' + "\n  ".join(imgs) + "\n</p>\n")
+        else:
+            w('<p align="center">' + " &nbsp;·&nbsp; ".join(
+                f'<a href="{l["url"]}">{l["label"]}</a>' for l in cfg["links"]) + "</p>\n")
+    w("---\n")
 
     # ── About + how I work
     w("## 👋 about me\n")
@@ -219,7 +230,7 @@ def main():
 
     stars = sum(r["stargazers_count"] for r in listed)
     since = user.get("created_at", "")[:4]
-    if listed:
+    if listed and auto.get("show_numbers", False):
         w(f'<p align="center"><sub><b>{len(listed)}</b> public projects · <b>{stars}</b> stars'
           + (f" · on GitHub since <b>{since}</b>" if since else "") + "</sub></p>\n")
     if auto.get("show_streak", True):
@@ -235,8 +246,9 @@ def main():
 
     if auto.get("show_views", True):
         w(f'<p align="center"><img src="https://komarev.com/ghpvc/?username={USER}&label=profile%20views&color=0d1117&style=flat-square" alt="profile views" /></p>\n')
-    w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[1]},100:{grad[0]}'
-      f'&height=110&section=footer" alt="" />\n')
+    if hdr.get("show_banner", False):
+        w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{grad[1]},100:{grad[0]}'
+          f'&height=110&section=footer" alt="" />\n')
     # Changes once a month so GitHub never disables the daily schedule for inactivity
     w(f"<!-- built from profile.toml by scripts/build_readme.py. Edit profile.toml, not this file. "
       f"refreshed: {TODAY:%Y-%m} -->")

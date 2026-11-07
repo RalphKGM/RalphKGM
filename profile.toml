@@ -8,7 +8,7 @@
 
 [about]
 name = "Ralph Kevin Morales"
-# Lines that rotate in the animated text under the banner. Keep each short.
+# Lines for the animated typing text (only shown if [header] show_typing = true).
 # You can use {school_line} (e.g. "3rd year BSCS @ Mapúa Makati"), but the banner already shows it.
 typing_lines = [
   "hey, i'm ralph 👋",
@@ -23,11 +23,7 @@ I handle the design, implementation, and testing of my projects myself, and I us
 
 # Quick facts shown as a short list under the intro. Add, remove, or reorder freely.
 # {school_line} works here too.
-facts = [
-  "🔬 school research in computer vision, energy forecasting, and RAG chatbots",
-  "🛠️ I like building tools I'd actually use myself",
-  "📚 outside of code: web novels and games",
-]
+facts = []   # e.g. ["🔬 research in computer vision", "📚 web novels and games"]
 
 [school]
 name = "Mapúa University Makati"
@@ -39,7 +35,10 @@ graduated = false        # set true after graduation
 
 [header]
 color = "38BDF8"         # accent color, hex without # (typing text, streak card)
-banner_colors = ["0EA5E9", "1E3A8A"]   # top banner gradient (left, right); readable in light and dark mode
+show_banner = false      # true = colored wave banner instead of the plain name heading
+banner_colors = ["0EA5E9", "1E3A8A"]   # banner gradient (left, right), only used if show_banner = true
+show_typing = false      # true = animated typing line under the header (uses typing_lines)
+link_style = "text"      # "text" = plain links, "badges" = colored buttons
 font = "JetBrains+Mono"
 
 # ─────────────────────────────────────────────────────────────
@@ -151,14 +150,15 @@ color = "EA4335"
 [auto]
 show_recent_repos = true     # "more public repos" list
 recent_repos_count = 6
-show_activity = true         # latest public pushes / new repos / releases
+show_activity = false         # latest public pushes / new repos / releases
 activity_count = 6
-show_languages = true        # language bar measured from your public repos
+show_languages = false        # language bar measured from your public repos
 languages_count = 7
 # Languages that inflate the numbers without being "code you wrote".
 ignore_languages = ["Jupyter Notebook", "Makefile", "Batchfile", "CMake", "Dockerfile", "Procfile"]
-show_streak = true           # streak card (external service)
+show_streak = false           # streak card (external service)
 show_views = true            # small profile view counter
+show_numbers = false         # "N public projects · N stars" line
 show_snake = false           # contribution snake (turn on after the snake workflow runs once)
 # Public repos to never list in the automatic sections.
 exclude_repos = ["RalphKGM", "group4website.github.io", "WD4E-Advanced_Styling_With_Responsive_Design"]
