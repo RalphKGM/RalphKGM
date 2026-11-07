@@ -13,10 +13,6 @@
 I'm a CS student who learns by building, breaking, and figuring out why it broke.
 I handle the design, implementation, and testing of my projects myself, and I use AI-assisted coding (Claude Code, Codex) for documentation and for the parts I'm still learning.
 
-- 🔬 school research in computer vision, energy forecasting, and RAG chatbots
-- 🛠️ I like building tools I'd actually use myself
-- 📚 outside of code: web novels and games
-
 ## 🔨 working on now
 
 - **Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget, with citations (AI3 class project)
