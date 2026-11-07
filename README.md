@@ -13,7 +13,7 @@ I handle the design, implementation, and testing of my projects myself, and I us
 
 - **Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget, with citations (AI3 class project)
 - **eRankToSRank**: [erank.ralphkgm.tech](https://erank.ralphkgm.tech)
-- **My portfolio**: [ralphkgm.tech](https://ralphkgm.tech)
+- **My portfolio**: [portfolio.ralphkgm.tech](https://portfolio.ralphkgm.tech)
 
 ## ⭐ featured projects
 
