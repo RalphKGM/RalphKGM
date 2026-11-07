@@ -10,13 +10,13 @@
 
 ## 👋 about me
 
-CS student who learns by building, breaking, and figuring out why it broke.
-I like making things I'd actually use: school research tools, AI apps, and small utilities.
+I'm a CS student who learns by building, breaking, and figuring out why it broke.
+I handle the design, implementation, and testing of my projects myself, and I use AI-assisted coding (Claude Code, Codex) for documentation and for the parts I'm still learning.
 
-| | |
-|---|---|
-| 🧠 **what I do myself** | design · implementation · testing |
-| 🤖 **where AI assists** | documentation · code in areas I'm still learning <sub>(Claude Code, Codex)</sub> |
+- 🎓 3rd year BSCS @ Mapúa Makati
+- 🔬 school research in computer vision, energy forecasting, and RAG chatbots
+- 🛠️ I like building tools I'd actually use myself
+- 📚 outside of code: web novels and games
 
 ## 🔨 working on now
 
@@ -149,6 +149,8 @@ CSS        ░░░░░░░░░░░░░░  3.5%
 <p align="center"><sub><b>15</b> public projects · <b>2</b> stars · on GitHub since <b>2024</b></sub></p>
 
 <p align="center"><img src="https://streak-stats.demolab.com?user=RalphKGM&theme=tokyonight&hide_border=true&background=0D1117&ring=38BDF8&fire=38BDF8&currStreakLabel=38BDF8" alt="streak" /></p>
+
+<p align="center"><img src="https://komarev.com/ghpvc/?username=RalphKGM&label=profile%20views&color=0d1117&style=flat-square" alt="profile views" /></p>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:38BDF8,100:0d1117&height=110&section=footer" alt="" />
 

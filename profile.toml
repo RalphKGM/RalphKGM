@@ -17,15 +17,18 @@ typing_lines = [
 ]
 # Short intro under the banner. Markdown is allowed.
 intro = """
-CS student who learns by building, breaking, and figuring out why it broke.
-I like making things I'd actually use: school research tools, AI apps, and small utilities.
+I'm a CS student who learns by building, breaking, and figuring out why it broke.
+I handle the design, implementation, and testing of my projects myself, and I use AI-assisted coding (Claude Code, Codex) for documentation and for the parts I'm still learning.
 """
 
-# How you work. Shown as a small two-row table. Delete this whole block to hide it.
-[about.how_i_work]
-i_do = ["design", "implementation", "testing"]
-ai_assists = ["documentation", "code in areas I'm still learning"]
-ai_tools = "Claude Code, Codex"
+# Quick facts shown as a short list under the intro. Add, remove, or reorder freely.
+# {school_line} works here too.
+facts = [
+  "🎓 {school_line}",
+  "🔬 school research in computer vision, energy forecasting, and RAG chatbots",
+  "🛠️ I like building tools I'd actually use myself",
+  "📚 outside of code: web novels and games",
+]
 
 [school]
 name = "Mapúa University Makati"
@@ -152,6 +155,7 @@ languages_count = 7
 # Languages that inflate the numbers without being "code you wrote".
 ignore_languages = ["Jupyter Notebook", "Makefile", "Batchfile", "CMake", "Dockerfile", "Procfile"]
 show_streak = true           # streak card (external service)
+show_views = true            # small profile view counter
 show_snake = false           # contribution snake (turn on after the snake workflow runs once)
 # Public repos to never list in the automatic sections.
 exclude_repos = ["RalphKGM", "group4website.github.io", "WD4E-Advanced_Styling_With_Responsive_Design"]

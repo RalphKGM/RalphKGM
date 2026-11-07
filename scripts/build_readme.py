@@ -98,15 +98,8 @@ def main():
     # ── About + how I work
     w("## 👋 about me\n")
     w(about.get("intro", "").strip() + "\n")
-    hw = about.get("how_i_work")
-    if hw:
-        w("| | |\n|---|---|")
-        if hw.get("i_do"):
-            w(f"| 🧠 **what I do myself** | {' · '.join(hw['i_do'])} |")
-        if hw.get("ai_assists"):
-            tools = f" <sub>({hw['ai_tools']})</sub>" if hw.get("ai_tools") else ""
-            w(f"| 🤖 **where AI assists** | {' · '.join(hw['ai_assists'])}{tools} |")
-        w("")
+    if about.get("facts"):
+        w("\n".join(f"- {f.replace('{school_line}', sline)}" for f in about["facts"]) + "\n")
 
     # ── Now
     if cfg.get("now"):
@@ -236,6 +229,8 @@ def main():
           f'  <source media="(prefers-color-scheme: dark)" srcset="{base}/github-snake-dark.svg" />\n'
           f'  <img alt="contribution snake" src="{base}/github-snake.svg" />\n</picture>\n')
 
+    if auto.get("show_views", True):
+        w(f'<p align="center"><img src="https://komarev.com/ghpvc/?username={USER}&label=profile%20views&color=0d1117&style=flat-square" alt="profile views" /></p>\n')
     w(f'<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:{color},100:0d1117'
       f'&height=110&section=footer" alt="" />\n')
     # Changes once a month so GitHub never disables the daily schedule for inactivity
