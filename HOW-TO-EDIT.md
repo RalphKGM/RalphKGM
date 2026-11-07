@@ -42,5 +42,5 @@ Locally (Python 3.11+): `GITHUB_TOKEN=$(gh auth token) python3 scripts/build_rea
 ## If something breaks
 
 - **The README didn't update:** open the Actions tab and click the red run to see the error. The usual cause is a typo in `profile.toml`, like a missing quote or comma. You can paste the file into [toml-lint.com](https://www.toml-lint.com) to find it.
-- **The snake image is missing:** run the **Contribution snake** workflow once by hand. It creates the `output` branch the image is served from.
+- **The snake is off by default:** it needs the **Contribution snake** workflow to run once (Actions tab, Run workflow). After it succeeds, set `show_snake = true`.
 - **The streak card is blank:** that's an outside service having a bad day. It comes back on its own.

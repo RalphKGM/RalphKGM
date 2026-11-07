@@ -148,6 +148,6 @@ languages_count = 8
 # Languages that inflate the numbers without being "code you wrote".
 ignore_languages = ["Jupyter Notebook", "Makefile", "Batchfile", "CMake", "Dockerfile", "Procfile"]
 show_streak = true           # streak card (external service)
-show_snake = true            # contribution snake animation (built by the snake workflow)
+show_snake = false           # contribution snake animation (built by the snake workflow)
 # Public repos to never list anywhere automatic.
 exclude_repos = ["RalphKGM", "group4website.github.io", "WD4E-Advanced_Styling_With_Responsive_Design"]

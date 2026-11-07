@@ -133,12 +133,6 @@ PLpgSQL     ░░░░░░░░░░░░░░░░░░░░    1.8%
 
 <p align="center"><img src="https://streak-stats.demolab.com?user=RalphKGM&theme=tokyonight&hide_border=true" alt="streak" /></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RalphKGM/RalphKGM/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RalphKGM/RalphKGM/output/github-snake.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/RalphKGM/RalphKGM/output/github-snake.svg" />
-</picture>
-
 ### 📬 find me
 
 [![ralphkgm.tech](https://img.shields.io/badge/ralphkgm.tech-0d1117?style=flat-square&logo=vercel&logoColor=38BDF8)](https://ralphkgm.tech)&nbsp;[![LinkedIn](https://img.shields.io/badge/LinkedIn-0d1117?style=flat-square&logo=linkedin&logoColor=38BDF8)](https://linkedin.com/in/ralphkevmorales)&nbsp;[![Email](https://img.shields.io/badge/Email-0d1117?style=flat-square&logo=gmail&logoColor=38BDF8)](mailto:ralphkevingmorales@gmail.com)
