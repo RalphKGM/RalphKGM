@@ -1,3 +1,5 @@
+<h1 align="center">Ralph Kevin Morales</h1>
+
 <p align="center">3rd year BSCS @ Mapúa Makati</p>
 
 <p align="center"><a href="https://ralphkgm.tech">ralphkgm.tech</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/ralphkevmorales">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:ralphkevingmorales@gmail.com">Email</a></p>
@@ -13,7 +15,7 @@ I handle the design, implementation, and testing of my projects myself, and I us
 
 - **Every Peso Cited**: a RAG chatbot that answers questions about the Philippine national budget, with citations (AI3 class project)
 - **eRankToSRank**: [erank.ralphkgm.tech](https://erank.ralphkgm.tech)
-- **My portfolio**: [portfolio.ralphkgm.tech](https://portfolio.ralphkgm.tech)
+- **My portfolio**: [ralphkgm.tech](https://ralphkgm.tech)
 
 ## ⭐ featured projects
 
@@ -77,12 +79,12 @@ Flutter app that turns Philippine government paperwork into a quest tracker.
 <details>
 <summary><b>📂 more public repos</b> <sub>(recently updated first)</sub></summary>
 
+- [duo](https://github.com/RalphKGM/duo) `JavaScript`: Claude Code + Codex CLI in one terminal. Ask once, get both answers merged, or let one agent orchestrate the other. <sub>Nov 2026</sub>
 - [rimsekai-ce-compatibility-patch](https://github.com/RalphKGM/rimsekai-ce-compatibility-patch) `C#` <sub>Oct 2026</sub>
 - [rimpy-light](https://github.com/RalphKGM/rimpy-light) `Swift` <sub>Oct 2026</sub>
 - [responsive-final-project](https://github.com/RalphKGM/responsive-final-project) `CSS` <sub>Oct 2026</sub>
 - [cipher-fruit-defects-app](https://github.com/RalphKGM/cipher-fruit-defects-app) `Python` <sub>Oct 2026</sub>
 - [library-management-system](https://github.com/RalphKGM/library-management-system) `Python` <sub>Sep 2026</sub>
-- [HMBMS](https://github.com/RalphKGM/HMBMS) `JavaScript` <sub>Jun 2026</sub>
 
 [all repos →](https://github.com/RalphKGM?tab=repositories)
 
