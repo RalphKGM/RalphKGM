@@ -79,12 +79,12 @@ Flutter app that turns Philippine government paperwork into a quest tracker.
 <details>
 <summary><b>📂 more public repos</b> <sub>(recently updated first)</sub></summary>
 
+- [ai3](https://github.com/RalphKGM/ai3) `Python` <sub>Nov 2026</sub>
 - [duo](https://github.com/RalphKGM/duo) `JavaScript`: Claude Code + Codex CLI in one terminal. Ask once, get both answers merged, or let one agent orchestrate the other. <sub>Nov 2026</sub>
 - [rimsekai-ce-compatibility-patch](https://github.com/RalphKGM/rimsekai-ce-compatibility-patch) `C#` <sub>Oct 2026</sub>
 - [rimpy-light](https://github.com/RalphKGM/rimpy-light) `Swift` <sub>Oct 2026</sub>
 - [responsive-final-project](https://github.com/RalphKGM/responsive-final-project) `CSS` <sub>Oct 2026</sub>
 - [cipher-fruit-defects-app](https://github.com/RalphKGM/cipher-fruit-defects-app) `Python` <sub>Oct 2026</sub>
-- [library-management-system](https://github.com/RalphKGM/library-management-system) `Python` <sub>Sep 2026</sub>
 
 [all repos →](https://github.com/RalphKGM?tab=repositories)
 
